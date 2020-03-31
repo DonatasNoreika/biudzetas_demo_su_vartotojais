@@ -19,6 +19,7 @@ bcrypt = Bcrypt(app)
 login_manager = LoginManager(app)
 login_manager.login_view = 'prisijungti'
 login_manager.login_message_category = 'info'
+login_manager.login_message = "Prisijunkite, jei norite matyti puslapį."
 
 class Vartotojas(db.Model, UserMixin):
     __tablename__ = "vartotojas"
