@@ -17,7 +17,7 @@ db = SQLAlchemy(app)
 
 bcrypt = Bcrypt(app)
 login_manager = LoginManager(app)
-login_manager.login_view = 'registruotis'
+login_manager.login_view = 'prisijungti'
 login_manager.login_message_category = 'info'
 
 class Vartotojas(db.Model, UserMixin):
@@ -59,6 +59,7 @@ def registruotis():
 
 @app.route("/prisijungti", methods=['GET', 'POST'])
 def prisijungti():
+    db.create_all()
     if current_user.is_authenticated:
         return redirect(url_for('index'))
     form = forms.PrisijungimoForma()
