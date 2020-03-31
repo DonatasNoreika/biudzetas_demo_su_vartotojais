@@ -117,6 +117,7 @@ def new_record():
 
 
 @app.route("/delete/<int:id>")
+@login_required
 def delete(id):
     irasas = Irasas.query.get(id)
     db.session.delete(irasas)
@@ -124,6 +125,7 @@ def delete(id):
     return redirect(url_for('records'))
 
 @app.route("/update/<int:id>", methods=['GET', 'POST'])
+@login_required
 def update(id):
     forma = forms.IrasasForm()
     irasas = Irasas.query.get(id)
@@ -135,6 +137,7 @@ def update(id):
     return render_template("update.html", form=forma, irasas=irasas)
 
 @app.route("/balansas")
+@login_required
 def balance():
     try:
         visi_irasai = Irasas.query.filter_by(vartotojas_id=current_user.id)
