@@ -103,6 +103,7 @@ def records():
     return render_template("irasai.html", visi_irasai=visi_irasai, datetime=datetime)
 
 @app.route("/naujas_irasas", methods=["GET", "POST"])
+@login_required
 def new_record():
     db.create_all()
     forma = forms.IrasasForm()
