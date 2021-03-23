@@ -10,7 +10,7 @@
 <p>Data: {{ datetime.strftime(irasas.data, "%Y-%m-%d %H:%M:%S")}}</p>
 {% else %}
 <p>Išlaidos: {{irasas.suma}}</p>
-<p>Data: {{irasas.data}}</p>
+<p>Data: {{ datetime.strftime(irasas.data, "%Y-%m-%d %H:%M:%S")}}</p>
 {% endif %}
 <a href="{{ url_for('delete', id=irasas['id']) }}">Ištrinti</a>
 <a href="{{ url_for('update', id=irasas['id']) }}">Redaguoti</a>
